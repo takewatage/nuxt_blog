@@ -45,15 +45,15 @@ module.exports = {
       }
     }
   },
+  //プラグイン
   plugins: [
     { src: '~plugins/bootstrap-vue.js' },
     { src: '~plugins/vue-sax.js' },
     { src: '~plugins/contentful' }
   ],
+  //モジュール
   modules: [
     'bootstrap-vue/nuxt',
-
-    // Or if you have custom bootstrap CSS...
     ['bootstrap-vue/nuxt', { css: false }],
     ['nuxt-sass-resources-loader', [
       '@/assets/sass/foundation/variable.scss',
@@ -70,6 +70,10 @@ module.exports = {
         ]
       })
     }
+  },
+
+  router: {
+    middleware: 'pages'
   },
 
   env: {
