@@ -1,0 +1,29 @@
+//transiton
+.page-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.page-leave-active {
+  transition: opacity 0.25s ease-in;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+
+.background-enter-active,
+.background-leave-active {
+  transition: all 0.4s ease;
+}
+.background-enter,
+.background-leave-to {
+  transform: scale(1.1) translateZ(0);
+  opacity: 0;
+}
+
+
+body {
+  background-image: url('/body-bg.png');
+}

@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+
+    <!-- <AppHeader></AppHeader> -->
+
     <h1>Blog Top</h1>
     <vs-row vs-justify="center">
       <vs-col
@@ -33,14 +36,16 @@
 </template>
 
 <script>
-  import { createClient } from "~/plugins/contentful.js";
-  const client = createClient();
+  import { createClient } from "~/plugins/contentful.js"
+  import AppHeader from "~/components/AppHeader.vue"
+
+  const client = createClient()
   export default {
     head: {
       title: "Blog"
     },
     data() {
-      return {};
+      return {}
     },
     async asyncData({ env, params }) {
       return await client
@@ -55,6 +60,10 @@
           };
         })
         .catch(console.error);
+      },
+
+      components: {
+        AppHeader
+      }
     }
-  };
 </script>

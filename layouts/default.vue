@@ -1,38 +1,19 @@
 <template>
   <div>
-      <vs-navbar
-      v-model="indexActive"
-      color="#00c4a7"
-      text-color="rgba(255,255,255,.6)"
-      active-text-color="rgba(255,255,255,1)"
-      class="myNavbar">
-      <vs-navbar-title>
-          <nuxt-link to="/">
-            Myblog
-          </nuxt-link>
-        </vs-navbar-title>
-        <vs-navbar-item index="0" >
-            <nuxt-link active-class="is-active" to="/" class="nav-item is-tab" exact>Home</nuxt-link>
-        </vs-navbar-item>
-        <vs-navbar-item index="1">
-            <nuxt-link active-class="is-active" to="/blog" class="nav-item is-tab" exact>Blog</nuxt-link>
-        </vs-navbar-item>
-        <vs-navbar-item index="2">
-            <nuxt-link active-class="is-active" to="/about" class="nav-item is-tab" exact>About</nuxt-link>
-        </vs-navbar-item>
-          
-    
-    
-    </vs-navbar>
-    <nuxt/>
+      <NavibarItems></NavibarItems>
+      <nuxt/>
   </div>
 </template>
 
 <script>
+import NavibarItems from '~/components/NavibarItems.vue'
+
 export default {
   data: ()=>({
-    indexActive: 0
   }),
+  components: {
+    NavibarItems
+  }
 }
 </script>
 

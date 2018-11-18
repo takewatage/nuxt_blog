@@ -1,9 +1,17 @@
 <template>
-  <section>
-    <div class="container">
-        <b-row>
-            <h1>Comming Soon</h1>
-        </b-row>
+  <section id="lonery_sistem">
+    <div class="lonery_overlay"></div>
+    <div class="lonery_sistem">
+      <div class="lonery_sistem_header"></div>
+      <div class="lonery_sistem_body"></div>
     </div>
   </section>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {}
+    }
+  }
+</script>
