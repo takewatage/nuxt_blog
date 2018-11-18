@@ -31,9 +31,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    /*
-    ** Run ESLint on save
-    */
+    
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -43,21 +41,38 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+
+      /**
+       * vue-loader に オプションを渡す
+       */
+      const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader');
+      const { options: {loaders} } = vueLoader || { options: {} }
+      if (loaders) {
+        for (const loader of Object.values(loaders)) {
+          changeLoaderOptions(Array.isArray(loader) ? loader : [loader])
+        }
+      }
+      config.module.rules.forEach(rule => changeLoaderOptions(rule.use))
     }
   },
+
+
   //プラグイン
   plugins: [
     { src: '~plugins/bootstrap-vue.js' },
     { src: '~plugins/vue-sax.js' },
     { src: '~plugins/contentful' }
   ],
-  //モジュール
-  modules: [
-    'bootstrap-vue/nuxt',
-    ['bootstrap-vue/nuxt', { css: false }],
-    ['nuxt-sass-resources-loader', [
-      '@/assets/sass/foundation/variable.scss',
-    ]],
+  
+  // modules: [
+  //   ['nuxt-sass-resources-loader', [
+  //     '@/assets/sass/foundation/variable.scss',
+  //     '@/assets/sass/foundation/mixin.scss',
+  //   ]],
+  // ],
+
+  css:[
+    "~/assets/sass/foundation/app.scss"
   ],
 
   generate: {
@@ -80,6 +95,37 @@ module.exports = {
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID
+  }  
+}
+
+
+function changeLoaderOptions(loaders) {
+  if (loaders) {
+    for (const loader of loaders) {
+      let options;
+      switch (loader.loader) {
+        case 'sass-loader':
+          options = {
+            includePaths: [
+              path.resolve(__dirname, './assets/sass/foundation/variable/'),
+              path.resolve(__dirname, './assets/sass/foundation/mixin/'),
+              path.resolve(__dirname, './assets/sass/foundation/header/')
+            ],
+            data: '@import "_variable";\n@import "_mixin";'
+          };
+          break
+// 他の loader を追加できる
+//        case 'stylus-loader':
+//          options = {
+//            includePaths: [path.resolve(__dirname, './assets/sass/')],
+//            import: ['_import']
+//          }
+//          break
+      }
+      if (options) {
+        Object.assign(loader.options, options)
+      }
+    }
   }
 }
 
