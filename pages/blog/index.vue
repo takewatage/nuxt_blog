@@ -3,7 +3,6 @@
 
     <!-- <AppHeader></AppHeader> -->
 
-    <h1>Blog Top</h1>
     <vs-row vs-justify="center">
       <vs-col
         type="flex"

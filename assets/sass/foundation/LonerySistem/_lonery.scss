@@ -1,0 +1,28 @@
+#lonery_sistem {
+    .lonery_overlay {
+        width: 100%;
+        background: rgba(0,0,0,.4);
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1;
+        -webkit-transition: all .25s ease;
+        transition: all .25s ease;
+        opacity: 1;
+    }
+
+    .lonery_sistem {
+        background: linear-gradient(45deg, rgba(4, 0, 0, 0.7), rgba(191, 25, 203, 0.7));
+        background-size: 400% 400%;
+        height: 100vh;
+        -webkit-animation: tarokenanime 4s ease infinite;
+        -moz-animation: tarokenanime 4s ease infinite;
+        animation: tarokenanime 4s ease infinite;
+
+        .lonery_sistem-header {
+            height: 30px;
+            background-color: red;
+        }
+    }
+}

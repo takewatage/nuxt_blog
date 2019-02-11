@@ -1,0 +1,56 @@
+@keyframes slide-right {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-top {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slide-bottom {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes page__down-decoration {
+    0% {
+        transform: translateY(-100%);
+    }
+    20% {
+        transform: translateY(0%);
+    }
+    40% {
+        transform: translateY(-5%);
+    }
+    60% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(-3%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

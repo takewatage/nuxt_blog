@@ -1,11 +1,12 @@
 
+@import 'bootstrap/dist/css/bootstrap.css';
 @import 'variable';
 @import 'mixin';
 @import 'common';
 
 
 @import 'header';
-@import 'blog';
+@import 'animate';
 
 //lonery sistem
 @import 'LonerySistem/lonery';

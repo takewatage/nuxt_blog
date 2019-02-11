@@ -5,8 +5,8 @@
             'blog': (page === 'blog')
         }">
             <transition-group name="background" tag="div" class="bk-img">
-                <div key="img1" v-if="page === 'index'" class="header-img-index">{{page}}</div>
-                <div key="img2" v-if="page === 'blog'" class="header-img-blog">{{page}}</div>
+                <div key="img1" v-if="page === 'index'" class="header-img-index"></div>
+                <div key="img2" v-if="page === 'blog'" class="header-img-blog"></div>
             </transition-group>
 
         </header>
